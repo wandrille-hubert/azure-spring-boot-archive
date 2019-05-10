@@ -98,20 +98,26 @@ public class AADAuthenticationProperties {
          * azure.activedirectory.user-group.value}  to signify that this node is a valid {@code UserGroup}.
          */
         @NotEmpty
-        private String key = "objectType";
+		//updated to work with graph.microsoft.com instead of graph.windows.net
+        //private String key = "objectType";
+		private String key = "@odata.type";
 
         /**
          * Value of the JSON Node identified by the {@code azure.activedirectory.user-group.key} to validate the JSON
          * Node is a UserGroup.
          */
         @NotEmpty
-        private String value = "Group";
+		//updated to work with graph.microsoft.com instead of graph.windows.net
+        //private String value = "Group";
+		private String value = "#microsoft.graph.group";
 
         /**
          * Key of the JSON Node containing the Azure Object ID for the {@code UserGroup}.
          */
         @NotEmpty
-        private String objectIDKey = "objectId";
+        //updated to work with graph.microsoft.com instead of graph.windows.net
+		//private String objectIDKey = "objectId";
+		private String objectIDKey = "id";
 
     }
 
