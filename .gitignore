@@ -55,3 +55,6 @@ azure-spring-boot-samples/**/bin
 gradle-app.setting
 !gradle-wrapper.jar
 .gradletasknamecache
+azure-spring-boot/src/.vs/slnx.sqlite
+azure-spring-boot-samples/.vs/slnx.sqlite
+azure-spring-boot-samples/.vs/ProjectSettings.json

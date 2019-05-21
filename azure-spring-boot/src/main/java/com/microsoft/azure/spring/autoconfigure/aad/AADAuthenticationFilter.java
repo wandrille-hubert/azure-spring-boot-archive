@@ -74,6 +74,7 @@ public class AADAuthenticationFilter extends OncePerRequestFilter {
                     graphApiToken = client.acquireTokenForGraphApi(idToken, tenantId).getAccessToken();
 
                     principal.setUserGroups(client.getGroups(graphApiToken));
+					principal.setGraphApiToken(graphApiToken);
 
                     request.getSession().setAttribute(CURRENT_USER_PRINCIPAL, principal);
                     request.getSession().setAttribute(CURRENT_USER_PRINCIPAL_GRAPHAPI_TOKEN, graphApiToken);

@@ -19,6 +19,7 @@ public class UserPrincipal implements Serializable {
     private JWSObject jwsObject;
     private JWTClaimsSet jwtClaimsSet;
     private List<UserGroup> userGroups = new ArrayList<>();
+	private String graphApiToken;
 
     public UserPrincipal(JWSObject jwsObject, JWTClaimsSet jwtClaimsSet) {
         this.jwsObject = jwsObject;
@@ -73,6 +74,14 @@ public class UserPrincipal implements Serializable {
 
     public boolean isMemberOf(UserGroup group) {
         return !(userGroups == null || userGroups.isEmpty()) && userGroups.contains(group);
+    }
+
+	public void setGraphApiToken(String token) {
+        this.graphApiToken = token;
+    }
+
+	public String getGraphApiToken() {
+        return this.graphApiToken;
     }
 }
 
