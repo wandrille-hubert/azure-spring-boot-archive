@@ -75,7 +75,9 @@ public class AADOAuth2UserService implements OAuth2UserService<OidcUserRequest, 
         // Create a copy of oidcUser but use the mappedAuthorities instead
         oidcUser = new DefaultOidcUser(mappedAuthorities, oidcUser.getIdToken(), getUserNameAttrName(userRequest));
 
-        return oidcUser;
+		GraphOidcUser graphOidcUser = new GraphOidcUser(oidcUser, graphApiToken);
+
+		return graphOidcUser;
     }
 
     private OAuth2AuthenticationException wrapException(String errorCode, String errDesc, String uri, Exception e) {
