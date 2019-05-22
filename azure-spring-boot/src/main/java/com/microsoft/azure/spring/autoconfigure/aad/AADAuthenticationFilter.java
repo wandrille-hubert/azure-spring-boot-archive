@@ -80,8 +80,11 @@ public class AADAuthenticationFilter extends OncePerRequestFilter {
                     request.getSession().setAttribute(CURRENT_USER_PRINCIPAL_GRAPHAPI_TOKEN, graphApiToken);
                 }
 
-                final Authentication authentication = new PreAuthenticatedAuthenticationToken(
+				PreAuthenticatedAuthenticationToken preauth = new PreAuthenticatedAuthenticationToken(
                         principal, null, client.convertGroupsToGrantedAuthorities(principal.getUserGroups()));
+				preauth.setDetails(graphApiToken);
+
+				final Authentication authentication = preauth;
 
                 authentication.setAuthenticated(true);
                 log.info("Request token verification success. {}", authentication);
